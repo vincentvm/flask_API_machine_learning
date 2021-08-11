@@ -1,0 +1,13 @@
+name: flask_api
+channels:
+- defaults
+dependencies:
+- pip>=20
+- pip:
+  - waitress
+  - flask
+  - numpy
+  - pandas
+  - scikit-learn
+  - dill
+  - requests
