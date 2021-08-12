@@ -8,7 +8,7 @@ def hello_world(username='MyName'):
     return("Hello {}!".format(username))
 
 # Development
-app.run(host='0.0.0.0', port=8000, debug=True)
+## USE THE APP RUN COMMAND TO SERVE YOUR APP
 
 # Production
-#serve(app, host='0.0.0.0', port=8000)
+## OPTIONAL: USE WAITRESS TO SERVE YOUR APP
