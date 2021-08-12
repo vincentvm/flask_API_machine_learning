@@ -68,7 +68,7 @@ def bad_request(error=None):
 	return resp
 
 # Development
-#app.run(host='0.0.0.0', port=8000, debug= True)
+## SERVE THE APP USING THE RUN METHOD OF THE FLASK OBJECT
 
 # Production
-serve(app, host='0.0.0.0', port=8000)
+## SERVE THE APP USING WAITRESS

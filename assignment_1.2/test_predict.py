@@ -17,8 +17,6 @@ df = df.head()
 data = df.to_json(orient='records')
 
 print(data)
-resp = requests.post("http://192.168.50.103:8000/predict", \
-                    data = json.dumps(data),\
-                    headers= header)
-print(resp.status_code)
-print(resp.json())
+## WRITE A REQUEST TO YOUR LOCALHOST WITH A JSON BODY (variable data)
+
+## PRINT THE RESPONSE
