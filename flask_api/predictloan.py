@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import dill as pickle
 from flask import Flask, jsonify, request
-from utils import PreProcessing
 from waitress import serve
 
 app = Flask(__name__)
@@ -27,6 +26,8 @@ def apicall():
 		raise e
 	
 	clf = 'model_v2.pk'
+	model_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), './models/'+clf))
+	print(model_file_path)
 	
 	if test.empty:
 		return(bad_request())
@@ -34,7 +35,7 @@ def apicall():
 		#Load the saved model
 		print("Loading the model...")
 		loaded_model = None
-		with open('./models/'+clf,'rb') as f:
+		with open(model_file_path,'rb') as f:
 			loaded_model = pickle.load(f)
 
 		print("The model has been loaded...doing predictions now...")
@@ -68,7 +69,7 @@ def bad_request(error=None):
 	return resp
 
 # Development
-#app.run(host='0.0.0.0', port=8000, debug= True)
+app.run(host='0.0.0.0', port=8000, debug= True)
 
 # Production
-serve(app, host='0.0.0.0', port=8000)
+# serve(app, host='0.0.0.0', port=8000)
