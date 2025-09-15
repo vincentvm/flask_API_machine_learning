@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore")
 
 def build_and_train():
 
-	data = pd.read_csv('../data/training.csv')
+	data = pd.read_csv('./data/training.csv')
 	data = data.dropna(subset=['Gender', 'Married', 'Credit_History', 'LoanAmount'])
 
 	pred_var = ['Gender','Married','Dependents','Education','Self_Employed','ApplicantIncome','CoapplicantIncome',\
@@ -32,7 +32,7 @@ def build_and_train():
 	param_grid = {"randomforestclassifier__n_estimators" : [10, 20, 30],
 				 "randomforestclassifier__max_depth" : [None, 6, 8, 10],
 				 "randomforestclassifier__max_leaf_nodes": [None, 5, 10, 20], 
-				 "randomforestclassifier__min_impurity_split": [0.1, 0.2, 0.3]}
+				 "randomforestclassifier__min_impurity_decrease": [0.1, 0.2, 0.3]}
 
 	grid = GridSearchCV(pipe, param_grid=param_grid, cv=3)
 
@@ -90,6 +90,6 @@ class PreProcessing(BaseEstimator, TransformerMixin):
 if __name__ == '__main__':
 	model = build_and_train()
 
-	filename = 'model_v2.pk'
-	with open('../flask_api/models/'+filename, 'wb') as file:
+	filename = 'model_v3.pk'
+	with open('./flask_api/models/'+filename, 'wb') as file:
 		pickle.dump(model, file)
