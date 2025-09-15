@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "flask-api"
+version = "0.1.0"
+description = ""
+authors = ["Vincent-ORTEC <vincent.vanmierlo@shell.com>"]
+readme = "README.md"
+packages = [{include = "flask_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^3.0.3"
+waitress = "^3.0.0"
+pandas = "^2.2.2"
+scikit-learn = "^1.5.1"
+numpy = "^2.1.1"
+requests = "^2.32.3"
+dill = "^0.3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
